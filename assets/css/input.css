@@ -1,0 +1,362 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Bai';
+    src: url(../fonts/BaiJamjuree/BaiJamjuree-Regular.ttf);
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai';
+    src: url(../fonts/BaiJamjuree/BaiJamjuree-Medium.ttf);
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai';
+    src: url(../fonts/BaiJamjuree/BaiJamjuree-SemiBold.ttf);
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai';
+    src: url(../fonts/BaiJamjuree/BaiJamjuree-Bold.ttf);
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/Inter/static/Inter-Regular.ttf);
+    font-weight: 400;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/Inter/static/Inter-Medium.ttf);
+    font-weight: 500;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/Inter/static/Inter-SemiBold.ttf);
+    font-weight: 600;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/Inter/static/Inter-Bold.ttf);
+    font-weight: 700;
+    font-display: fallback;
+}
+
+@layer base {
+    :root {
+        --color-white-primary: #F0F2F5;
+        --color-white-secondary: #FFFFFF;
+        --color-black-primary: #161513;
+        --color-black-secondary: #1C1C22;
+        --color-gray: #636363;
+        --color-purple: #B16CEA;
+        --color-red: #FF5E69;
+        --color-orange: #FF8A56;
+        --color-light-orange: #FFA84B;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-white-primary: #161513;
+            --color-white-secondary: #1C1C22;
+            --color-black-primary: #F0F2F5;
+            --color-black-secondary: #FFFFFF;
+            --color-gray: #848484;
+        }
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'inter';
+        background: var(--color-white-primary);
+        color: var(--color-black-primary);
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Bai', serif;
+        font-weight: 700;
+    }
+
+    h1 {
+        @apply text-5xl;
+    }
+
+    h2 {
+        @apply text-4xl;
+    }
+
+    h3 {
+        @apply text-3xl;
+    }
+
+    h4 {
+        @apply text-2xl;
+    }
+
+    h5 {
+        @apply text-xl;
+    }
+
+    h6 {
+        @apply text-lg;
+    }
+
+    textarea:focus, input:focus {
+        border: none;
+        outline: none;
+    }
+
+    .container {
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media (min-width < 576px) {
+        .container {
+            max-width: 100% !important;
+        }
+    }
+
+    @media (min-width: 576px) {
+        .container {
+            max-width: 540px !important;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            max-width: 720px !important;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .container {
+            max-width: 960px !important;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .container {
+            max-width: 1140px !important;
+        }
+    }
+}
+
+@layer components {
+    .tag {
+        @apply capitalize px-3 py-2 my-2 rounded-full bg-base-black-primary hover:opacity-80 text-base-white-primary font-semibold font-bai mr-4 text-sm md:px-4 lg:text-base;
+    }
+
+    .button-animation {
+        @apply hover:-translate-y-1 hover:shadow-md dark:hover:shadow-[0px_5px_20px_-4px_rgba(255,255,255,0.2)] transition duration-300;
+    }
+
+    .text-description {
+        @apply leading-6 text-sm mt-8 font-light tracking-wide md:text-base md:leading;
+    }
+
+    .icon-button {
+        @apply hidden h-[50px] w-[50px] bg-none border-none rounded-md z-10;
+    }
+
+    .divider {
+        @apply font-semibold capitalize items-center text-base-white-primary px-4 text-xl md:px-6 lg:text-2xl font-bai leading-2;
+    }
+
+    @keyframes ticker {
+        0% {
+            transform: translateX(100%);
+        } 100% {
+            transform: translateX(-100%);
+        }
+    }
+    @keyframes ticker2 {
+        0% {
+            transform: translateX(0);
+        } 100% {
+            transform: translateX(-200%);
+        }
+    }
+
+    .nav-item {
+        @apply relative m-0 text-lg md:mr-10 h-full capitalize leading-4;
+    }
+
+    .nav-item:nth-child(n+6) {
+        @apply md:hidden;
+    }
+
+    .nav-link {
+        @apply py-4 px-6 font-medium md:p-0 block;
+    }
+
+    .footer-item {
+        @apply lg:ml-8 xl:ml-12 capitalize font-bai font-semibold text-xl md:text-base mr-12 text-wrap py-2 sm:font-inter sm:font-normal sm:mr-0 sm:ml-12;
+    }
+
+    .social-icon {
+        @apply relative rounded-full h-[46px] w-[46px] flex items-center justify-center bg-base-white-secondary bg-clip-padding border-base-black-primary border border-solid box-border;
+    }
+
+    .card {
+        @apply bg-base-white-secondary rounded-[20px] overflow-hidden shadow-[0px_0px_8px_0px_rgba(0,0,0,0.2)];
+    }
+
+    .card-img-wrapper {
+        @apply max-h-[300px] h-full overflow-hidden;
+    }
+
+    .card-img {
+        @apply block w-full brightness-90 object-cover transition duration-500;
+    }
+
+    .card:hover .card-img {
+        @apply scale-[1.05] brightness-100;
+    }
+
+    .card-wrapper {
+        @apply py-6 px-8 lg:px-7 lg:pt-5 lg:pb-7;
+    }
+
+    .card-title {
+        @apply text-2xl lg:text-3xl mb-4;
+    }
+
+    .widget {
+        @apply flex mb-6 flex-wrap py-4;
+    }
+
+    .widget a {
+        @apply capitalize block px-4 py-3 rounded-full bg-base-white-secondary font-semibold font-bai mr-4 xl:text-lg mb-4;
+    }
+    
+    .widget .current-cat a {
+        @apply bg-base-black-secondary text-base-white-primary;
+    }
+    
+    .pagination a, .pagination span {
+        @apply relative bg-white first:rounded-s-md last:rounded-e-md inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0;
+    }
+
+    .pagination span.current,
+    .pagination a:hover {
+        background: var(--color-white-secondary);
+        color: var(--color-black-primary);
+    }
+
+    .single-post-content {
+        @apply py-6 bg-base-white-secondary sm:py-8 md:py-10 lg:py-12 xl:py-14;
+    }
+
+    .single-post-content
+    h1,
+    h2,
+    h3 {
+        @apply capitalize mb-6 md:text-4xl;
+    }
+
+    .single-post-content p {
+        @apply lg:text-lg mb-8;
+    }
+
+    .single-post-content p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .gallery div {
+        @apply grid grid-cols-2 gap-4 [&>*:first-child]:col-span-2 [&>*:first-child]:row-span-2 md:grid-cols-4 lg:gap-6;
+    }
+
+    .gallery img {
+        @apply !object-cover !aspect-square !w-full !h-full;
+    }
+}
+
+@layer utilities {
+    .gradient-title {
+        color: none;
+        background-image: linear-gradient(90deg,
+                var(--color-purple),
+                var(--color-red),
+                var(--color-orange));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-text {
+        color: none;
+        background-image: linear-gradient(90deg,
+                var(--color-purple),
+                var(--color-red),
+                var(--color-orange),
+                var(--color-light-orange));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-bg {
+        background: linear-gradient(90deg,
+                var(--color-purple),
+                var(--color-red),
+                var(--color-orange),
+                var(--color-light-orange));
+    }
+
+    .faq.active .answer {
+        max-height: 300px;
+    }
+
+    .faq.active svg {
+        transform: rotate(45deg);
+    }
+
+    /* Dark background after navigation menu animation */
+    .overlay-active {
+        @apply !z-20 bg-[rgba(0,0,0,0.5)];
+    }
+
+    /* Navigation menu animation */
+    #navigation-list.active-navigation {
+        @apply translate-x-0;
+    }
+}
